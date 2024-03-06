@@ -4,7 +4,7 @@ import '@wangeditor/editor/dist/css/style.css' // 引入 css
 import React, { useState, useEffect } from 'react'
 import { Editor, Toolbar } from '@wangeditor/editor-for-react'
 import { IDomEditor, IEditorConfig, IToolbarConfig } from '@wangeditor/editor'
-
+import Home from '@/component/layout/home'
 function MyEditor() {
     // editor 实例
     const [editor, setEditor] = useState<IDomEditor | null>(null)   // TS 语法
@@ -63,5 +63,10 @@ function MyEditor() {
         </>
     )
 }
-
-export default MyEditor
+function home() {
+    return <div>
+        <Home />
+        <MyEditor />
+    </div>
+}
+export default home
