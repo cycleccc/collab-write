@@ -1,7 +1,9 @@
 const fs = require('fs')
 const { rm } = require('fs/promises')
 const path = require('path')
+// const execa = require('execa');
 const allTargets = (fs.readdirSync('packages').filter(f => {
+    console.log('f', f);
     // 过滤掉非目录文件
     if (!fs.statSync(`packages/${ f }`).isDirectory()) {
         return false
@@ -14,6 +16,7 @@ const allTargets = (fs.readdirSync('packages').filter(f => {
     return true
 }))
 const build = async function (target) {
+    console.log('target', target)
     const pkgDir = path.resolve(`packages/${ target }`)
     const pkg = require(`${ pkgDir }/package.json`)
 
@@ -22,6 +25,7 @@ const build = async function (target) {
 
     // -c 指使用配置文件 默认为rollup.config.js
     // --environment 向配置文件传递环境变量 配置文件通过proccess.env.获取
+    const { execa } = await import("execa")
     await execa(
         'rollup',
         [
@@ -41,6 +45,7 @@ const targets = allTargets // 上面的获取的子包
 const maxConcurrency = 4 // 并发编译个数
 
 const buildAll = async function () {
+    console.log("targets", targets);
     const ret = []
     const executing = []
     for (const item of targets) {
