@@ -22,6 +22,7 @@ const build = async function (target) {
 
     // -c 指使用配置文件 默认为rollup.config.js
     // --environment 向配置文件传递环境变量 配置文件通过proccess.env.获取
+    const { execa } = await import("execa")
     await execa(
         'rollup',
         [

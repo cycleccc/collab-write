@@ -1,7 +1,10 @@
 {
-    "name": "collab-writer",
+    "name": "collab-write",
     "version": "0.0.1",
     "private": true,
+    "packages": [
+        "packages/*"
+    ],
     "scripts": {
         "bootstrap": "pnpm install",
         "preinstall": "npx only-allow pnpm",
