@@ -1,12 +1,12 @@
 const fs = require('fs')
 const { rm } = require('fs/promises')
 const path = require('path')
-const allTargets = (fs.readdirSync('packages').filter(f => {
+const allTargets = (fs.readdirSync('apps').filter(f => {
     // 过滤掉非目录文件
-    if (!fs.statSync(`packages/${ f }`).isDirectory()) {
+    if (!fs.statSync(`apps/${ f }`).isDirectory()) {
         return false
     }
-    const pkg = require(`../packages/${ f }/package.json`)
+    const pkg = require(`../apps/${ f }/package.json`)
     // 过滤掉私有包和不带编译配置的包
     if (pkg.private && !pkg.buildOptions) {
         return false
@@ -14,12 +14,13 @@ const allTargets = (fs.readdirSync('packages').filter(f => {
     return true
 }))
 const build = async function (target) {
-    const pkgDir = path.resolve(`packages/${ target }`)
+    const pkgDir = path.resolve(`apps/${ target }`)
     const pkg = require(`${ pkgDir }/package.json`)
 
     // 编译前移除之前生成的产物
     await rm(`${ pkgDir }/dist`, { recursive: true, force: true })
 
+    console.log('target', target)
     // -c 指使用配置文件 默认为rollup.config.js
     // --environment 向配置文件传递环境变量 配置文件通过proccess.env.获取
     const { execa } = await import("execa")

@@ -6,7 +6,7 @@ import terser from '@rollup/plugin-terser'
 
 const require = createRequire(import.meta.url)
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
-const packagesDir = path.resolve(__dirname, 'packages')
+const packagesDir = path.resolve(__dirname, 'apps')
 const packageDir = path.resolve(packagesDir, process.env.TARGET)
 
 const resolve = p => path.resolve(packageDir, p)
