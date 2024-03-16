@@ -1,18 +1,10 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { editor } from "@repo/ui";
+import { Editor } from "@repo/ui";
 export default function Native() {
     return (
         <View style={ styles.container }>
-            <Text style={ styles.header }>Native</Text>
-            <Button
-                onClick={ () => {
-                    console.log("Pressed!");
-                    alert("Pressed!");
-                } }
-                text="Boop"
-            />
-            <StatusBar style="auto" />
+            <Editor />
         </View>
     );
 }
