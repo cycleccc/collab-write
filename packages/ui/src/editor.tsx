@@ -1,10 +1,9 @@
-"use client"
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
 
 import React, { useState, useEffect } from 'react'
 import { Editor, Toolbar } from '@wangeditor/editor-for-react'
 import { IDomEditor, IEditorConfig, IToolbarConfig, i18nGetResources, t } from '@wangeditor/editor'
-function MyEditor() {
+export function MyEditor() {
     // editor 实例
     const [editor, setEditor] = useState<IDomEditor | null>(null)   // TS 语法
     console.log(editor?.getAllMenuKeys())
@@ -76,4 +75,3 @@ function MyEditor() {
         </>
     )
 }
-export default MyEditor
