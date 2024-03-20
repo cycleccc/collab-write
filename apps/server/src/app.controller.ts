@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { PostService } from './post.service';
+import { AppService } from './app.service';
 import { User as UserModel, Post as PostModel } from '@prisma/client';
 
 @Controller()
@@ -16,6 +17,7 @@ export class AppController {
     constructor(
         private readonly userService: UserService,
         private readonly postService: PostService,
+        private readonly appService: AppService,
     ) { }
 
     @Get('post/:id')
@@ -80,5 +82,9 @@ export class AppController {
     @Delete('post/:id')
     async deletePost(@Param('id') id: string): Promise<PostModel> {
         return this.postService.deletePost({ id: Number(id) });
+    }
+    @Get()
+    getHello(): string {
+        return this.appService.getHello();
     }
 }
