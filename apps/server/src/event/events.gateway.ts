@@ -7,7 +7,6 @@ import {
 } from '@nestjs/websockets';
 import { from, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Server } from "socket.io";
 
 @WebSocketGateway({
     cors: {
@@ -16,7 +15,6 @@ import { Server } from "socket.io";
 })
 export class EventsGateway {
     @WebSocketServer()
-    server: Server;
 
     @SubscribeMessage('events')
     findAll(@MessageBody() data: any): Observable<WsResponse<number>> {
