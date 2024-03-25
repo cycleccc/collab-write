@@ -29,6 +29,8 @@
         "@nestjs/platform-socket.io": "^10.3.4",
         "@nestjs/websockets": "^10.3.4",
         "@prisma/client": "^5.11.0",
+        "@repo/types": "workspace:^",
+        "@repo/typescript-config": "workspace:^",
         "fastify": "^4.26.2",
         "reflect-metadata": "^0.2.0",
         "rxjs": "^7.8.1",
