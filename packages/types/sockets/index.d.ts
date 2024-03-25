@@ -1,3 +1,4 @@
 export interface Event {
-    name: string;
+    msg: string;
+    content: string;
 }
