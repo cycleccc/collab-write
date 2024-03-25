@@ -21,12 +21,9 @@ function MyEditor() {
         },
     ];
     // const resources = i18nGetResources('en') // 'en' 或 'zh-CN'
-    useEffect(() => {
-        //     setTimeout(() => {
-        //         setHtml(` <p style="text-indent:2em;text-align:justify"><span style="text-indent:2em">苏式月饼源自江浙地区，始于唐朝，盛于宋朝。到了清代，人们又发明了分层起酥工艺，制作出雪白金黄、酥香满口的酥皮月饼，苏式月饼从此开山创派。而清乾隆时期创立的中华老字号稻香村，对于苏式月饼有着独特的技艺传承和文化积累，可谓这一领域的宗师。今天，我们就来说说苏州稻香村的故事。</span><br> </p> <p style="text-align:center;text-indent:0em;margin-top:20px"><span style="text-indent:2em"><img src="http://resecms.gbxx123.com/img/202311/20231129093823_pugmisf7jt.png" title="" alt="截图20231129093702.png"></span></p> <p></p> <p style="text-align:center;text-indent:0em;margin-bottom:20px"><span style="font-family:'楷体' , '楷体_gb2312' , 'simkai'">苏式月饼</span></p>`)
-        //     }, 1500)
-        editor?.insertText('hello world~~~')
-    }, [])
+    // useEffect(() => {
+    //     editor?.insertText('hello world~~~')
+    // }, [editor])
 
     // 工具栏配置
     const toolbarConfig: Partial<IToolbarConfig> = {}  // TS 语法

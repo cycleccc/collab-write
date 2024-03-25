@@ -4,11 +4,11 @@ import { AppService } from './app.service';
 import { UserService } from './user.service';
 import { PostService } from './post.service';
 import { PrismaService } from './prisma.service';
-import { EventsModule } from './event/events.module';
+import { EventModule } from './gatway/event.module';
 
 
 @Module({
-    imports: [EventsModule],
+    imports: [EventModule],
     controllers: [AppController],
     providers: [AppService, PrismaService, UserService, PostService],
 })
