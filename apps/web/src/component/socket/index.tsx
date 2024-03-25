@@ -27,12 +27,12 @@ function App() {
 
         socket.on('connect', onConnect);
         socket.on('disconnect', onDisconnect);
-        socket.on('foo', onFooEvent);
+        socket.on('onMessage', onFooEvent);
 
         return () => {
             socket.off('connect', onConnect);
             socket.off('disconnect', onDisconnect);
-            socket.off('foo', onFooEvent);
+            socket.off('onMessage', onFooEvent);
         };
     }, []);
 

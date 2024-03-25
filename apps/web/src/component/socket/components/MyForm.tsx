@@ -10,9 +10,9 @@ export function MyForm() {
         event.preventDefault();
         setIsLoading(true);
 
-        socket.timeout(5000).emit('newMessage', value, () => {
+        socket.timeout(5000).emit('newMessage', value, (err: Error) => {
             setIsLoading(false);
-            console.log('timeout');
+            console.log('timeout', err);
 
         });
     }
