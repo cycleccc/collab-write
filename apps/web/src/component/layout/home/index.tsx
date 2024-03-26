@@ -4,9 +4,37 @@ import '@wangeditor/editor/dist/css/style.css' // 引入 css
 import React, { useState, useEffect } from 'react'
 import { Editor, Toolbar } from '@wangeditor/editor-for-react'
 import { IDomEditor, IEditorConfig, IToolbarConfig, i18nGetResources, t } from '@wangeditor/editor'
+import { socket } from '@/component/socket/socket'
 function MyEditor() {
     // editor 实例
     const [editor, setEditor] = useState<IDomEditor | null>(null)   // TS 语法
+    const [isConnected, setIsConnected] = useState(socket.connected);
+    const [fooEvents, setFooEvents] = useState<Event[]>([]);
+
+    useEffect(() => {
+        function onConnect() {
+            setIsConnected(true);
+        }
+
+        function onDisconnect() {
+            setIsConnected(false);
+        }
+
+        function onFooEvent(value: Event) {
+            console.log('onFooEvent', value)
+            setFooEvents(previous => [...previous, value]);
+        }
+
+        socket.on('connect', onConnect);
+        socket.on('disconnect', onDisconnect);
+        socket.on('onMessage', onFooEvent);
+
+        return () => {
+            socket.off('connect', onConnect);
+            socket.off('disconnect', onDisconnect);
+            socket.off('onMessage', onFooEvent);
+        };
+    }, []);
     console.log(editor?.getAllMenuKeys())
     console.log(editor?.getMenuConfig('fontSize'))
     // 编辑器内容
@@ -60,7 +88,7 @@ function MyEditor() {
                 <Editor
                     defaultConfig={ editorConfig }
                     value={ html }
-                    // defaultContent={ jsonContent }
+                    defaultContent={ jsonContent }
                     onCreated={ setEditor }
                     onChange={ editor => setHtml(editor.getHtml()) }
                     mode="default"

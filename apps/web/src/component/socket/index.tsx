@@ -6,7 +6,7 @@ import { ConnectionManager } from './components/ConnectionManager';
 import { Events } from "./components/Events";
 import { MyForm } from './components/MyForm';
 import { Event } from '@repo/types';
-
+import Editor from '@/component/layout/home'
 function App() {
     const [isConnected, setIsConnected] = useState(socket.connected);
     const [fooEvents, setFooEvents] = useState<Event[]>([]);
@@ -42,6 +42,7 @@ function App() {
             < Events events={ fooEvents } />
             <ConnectionManager />
             < MyForm />
+            {/* <Editor /> */ }
         </div>
     );
 }
