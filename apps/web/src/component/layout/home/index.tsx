@@ -2,13 +2,20 @@
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
 
 import React, { useState, useEffect } from 'react'
+import { h } from 'snabbdom'
 import { Editor, Toolbar } from '@wangeditor/editor-for-react'
 import { IDomEditor, IEditorConfig, IToolbarConfig, i18nGetResources, t } from '@wangeditor/editor'
+import { Boot } from '@wangeditor/editor'
+import mention from '@/component/editor/module/ctrl-enter';
+
+// @人元素
+Boot.registerModule(mention)
+
 function MyEditor() {
     // editor 实例
     const [editor, setEditor] = useState<IDomEditor | null>(null)   // TS 语法
-    console.log(editor?.getAllMenuKeys())
-    console.log(editor?.getMenuConfig('fontSize'))
+    // console.log(editor?.getAllMenuKeys())
+    // console.log(editor?.getMenuConfig('fontSize'))
     // 编辑器内容
     const [html, setHtml] = useState("<p>hello</p>");
     const jsonContent = [

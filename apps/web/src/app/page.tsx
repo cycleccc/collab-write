@@ -7,8 +7,8 @@ import Editor from '@/component/layout/home'
 import Socket from '@/component/socket'
 function home() {
     return <div>
-        {/* <Editor /> */ }
-        <Socket />
+        <Editor />
+        {/* <Socket /> */ }
     </div>
 }
 export default home
