@@ -1,33 +1,37 @@
 {
-    "name": "collab-write",
-    "version": "0.0.1",
-    "private": true,
-    "packages": [
-        "packages/*"
-    ],
-    "scripts": {
-        "bootstrap": "pnpm install",
-        "preinstall": "npx only-allow pnpm",
-        "clean": "pnpm recursive exec -- rm -rf node_modules && rm -rf node_modules",
-        "build": "node scripts/build.js"
-    },
-    "engines": {
-        "node": ">=16",
-        "pnpm": ">=7"
-    },
-    "devDependencies": {
-        "@rollup/plugin-json": "^6.1.0",
-        "@rollup/plugin-terser": "^0.4.4",
-        "chalk": "^5.3.0",
-        "execa": "^8.0.1",
-        "minimist": "^1.2.8",
-        "npm-run-all": "^4.1.5",
-        "rollup": "^4.13.0",
-        "rollup-plugin-typescript2": "^0.36.0",
-        "typescript": "^5.4.2"
-    },
-    "dependencies": {
-        "react": "18.2.0",
-        "react-dom": "18.2.0"
-    }
+  "name": "collab-write",
+  "version": "0.0.1",
+  "private": true,
+  "packages": [
+    "packages/*"
+  ],
+  "scripts": {
+    "bootstrap": "pnpm install",
+    "preinstall": "npx only-allow pnpm",
+    "clean": "pnpm recursive exec -- rm -rf node_modules && rm -rf node_modules",
+    "build": "node scripts/build.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=7"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.15.0",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "chalk": "^5.3.0",
+    "eslint": "^9.1.0",
+    "execa": "^8.0.1",
+    "minimist": "^1.2.8",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^4.13.0",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "typescript": "^5.4.2"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
 }
