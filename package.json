@@ -5,6 +5,10 @@
   "packages": [
     "packages/*"
   ],
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=7"
+  },
   "scripts": {
     "bootstrap": "pnpm install",
     "preinstall": "npx only-allow pnpm",
@@ -13,9 +17,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
-  "engines": {
-    "node": ">=16",
-    "pnpm": ">=7"
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.15.0",
@@ -29,9 +33,5 @@
     "rollup": "^4.13.0",
     "rollup-plugin-typescript2": "^0.36.0",
     "typescript": "^5.4.2"
-  },
-  "dependencies": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
   }
 }
