@@ -1,48 +1,61 @@
+# pnpm Monorepo 指令文档
 
-<!-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). -->
+## 初始化 Monorepo
 
+### 创建一个新的 Monorepo 项目
 
-This is a full stack project
+pnpm init @pnpm-workspace
 
-## Getting Started
+## 安装依赖
 
-cd in web and server folder
+### 安装依赖到根目录
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+pnpm install
 
-<!-- First, run the development server:
+### 安装依赖到特定子项目
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+pnpm workspace <package-name> install
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 安装开发依赖到特定子项目
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+pnpm workspace <package-name> install --save-dev
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 运行脚本
 
-## Learn More
+### 在所有子项目中运行脚本
 
-To learn more about Next.js, take a look at the following resources:
+pnpm recursive run <script-name>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 在特定子项目中运行脚本
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+pnpm workspace <package-name> run <script-name>
 
-## Deploy on Vercel
+## 添加、移除、更新子项目
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 添加新的子项目
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details. -->
+pnpm add <package-name> --workspace-root
+
+### 移除子项目
+
+pnpm remove <package-name>
+
+### 更新所有子项目的依赖
+
+pnpm recursive update
+
+## 其他常用指令
+
+### 清理依赖
+
+### 查看所有子项目
+
+pnpm list
+
+### 查看特定子项目的依赖
+
+pnpm workspace <package-name> list
+
+### 构建所有子项目
+
+pnpm recursive build
