@@ -1,7 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import LeftSidebar from './LeftSidebar'
+import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,7 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="flex h-screen">
+      <body className={cn(
+        'min-h-screen bg-background font-sans antialiased',
+        'flex h-screen',
+      )}
+      >
         <LeftSidebar />
         {children}
       </body>
