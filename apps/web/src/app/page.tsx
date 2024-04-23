@@ -3,10 +3,13 @@ import '@wangeditor/editor/dist/css/style.css' // 引入 css
 
 import React from 'react'
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
+import LeftSidebar from './LeftSidebar'
 
-function home() {
+redirect('/home')
+function app() {
   return (
-    <Link href="/home">跳转到首页</Link>
+    <div />
   )
 }
-export default home
+export default app
