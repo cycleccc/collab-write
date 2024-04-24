@@ -1,9 +1,9 @@
 {
-    "name": "@repo/types",
-    "main": "types.d.ts",
-    "version": "0.0.0",
-    "private": true,
-    "publishConfig": {
-        "access": "public"
-    }
+  "name": "@repo/types",
+  "version": "0.0.0",
+  "private": true,
+  "main": "types.d.ts",
+  "publishConfig": {
+    "access": "public"
+  }
 }
