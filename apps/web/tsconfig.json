@@ -1,5 +1,5 @@
 {
-  "extends": "@repo/typescript-config/nextjs.json",
+//   "extends": "@repo/typescript-config/nextjs.json",
   "compilerOptions": {
     "incremental": true,
     "target": "es5",
@@ -9,12 +9,16 @@
       "dom.iterable",
       "esnext"
     ],
+    "baseUrl": "src",
     "module": "esnext",
     "moduleResolution": "bundler",
     "paths": {
       "@/*": [
         "./src/*"
-      ]
+      ],
+      "@components/*": ["components/*"],
+      "@lib/*": ["lib/*"],
+      "@styles/*": ["styles/*"]
     },
     "resolveJsonModule": true,
     "allowJs": true,
