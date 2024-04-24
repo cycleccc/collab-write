@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-import { siteURL } from '../../../lib/env'
+import { siteURL } from '../../lib/env'
 
 interface MainLayoutProps {
   title: string
