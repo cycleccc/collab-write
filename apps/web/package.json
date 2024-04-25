@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "scripts": {
-    "dev": "next dev -p 8080",
+    "dev": "next dev -p 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -25,6 +25,7 @@
     "framer-motion": "^11.1.7",
     "lucide-react": "^0.372.0",
     "next": "13.4.19",
+    "next-auth": "5.0.0-beta.16",
     "postcss": "8.4.29",
     "socket.io-client": "^4.7.5",
     "tailwind-merge": "^2.3.0",
