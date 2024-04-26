@@ -1,61 +1,76 @@
-# pnpm Monorepo 指令文档
+<br />
 
-## 初始化 Monorepo
+<!-- ![](/.github/assets/presentation.png) -->
 
-### 创建一个新的 Monorepo 项目
+<p align="center">
+  Twitter clone built in Next.js + Nest.js + RN + TypeScript + Tailwind CSS using Cloud Storage
+</p>
 
-pnpm init @pnpm-workspace
+<!-- ## Preview 🎬
 
-## 安装依赖
+https://user-images.githubusercontent.com/55032197/201472767-9db0177a-79b5-4913-8666-1744102b0ad7.mp4 -->
 
-### 安装依赖到根目录
+<!-- ## Features ✨ -->
+## Todo ✨
 
-pnpm install
+- [X] Authentication with next-auth Authentication
+- [ ] Strongly typed React components with TypeScript
+- [ ] Users can add tweets, like, retweet, and reply
+- [ ] Users can delete tweets, add a tweet to bookmarks, and pin their tweet
+- [ ] Users can add images and GIFs to tweet
+- [ ] Users can follow and unfollow other users
+- [ ] Users can see their and other followers and the following list
+- [ ]  Users can see all users and the trending list
+- [ ] Realtime update likes, retweets, and user profile
+- [ ]  Realtime trending data from Twitter API
+- [ ] User can edit their profile
+- [ ] Responsive design for mobile, tablet, and desktop
+- [ ] Users can customize the site color scheme and color background
+- [ ] All images uploads are stored on Firebase Cloud Storage
 
-### 安装依赖到特定子项目
+## Tech 🛠
 
-pnpm workspace <package-name> install
+- [Next.js](https://nextjs.org)
+- [Nest.js](https://nestjs.com)
+- [TypeScript](https://www.typescriptlang.org)
+- [Tailwind CSS](https://tailwindcss.com)
+- [SWR](https://swr.vercel.app)
+- [Headless UI](https://headlessui.com)
+- [Shadcn UI](https://ui.shadcn.com/)
+- [Framer Motion](https://framer.com)
+<!-- - [React Hot Toast](https://react-hot-toast.com) -->
 
-### 安装开发依赖到特定子项目
+## Development 💻
 
-pnpm workspace <package-name> install --save-dev
+Here are the steps to run the project locally.
 
-## 运行脚本
+1. Clone the repository
 
-### 在所有子项目中运行脚本
+   ```bash
+   git clone https://github.com/cycleccc/twitter-clone.git
+   ```
 
-pnpm recursive run <script-name>
+2. Install dependencies
 
-### 在特定子项目中运行脚本
+   ```bash
+   pnpm i
+   ```
 
-pnpm workspace <package-name> run <script-name>
+3. run next web
 
-## 添加、移除、更新子项目
+   ```bash
+   cd apps/web
+   pnpm run dev
+   ```
 
-### 添加新的子项目
+4. run nest server
+   ```bash
+   cd apps/server
+   pnpm run dev
+   ```
 
-pnpm add <package-name> --workspace-root
-
-### 移除子项目
-
-pnpm remove <package-name>
-
-### 更新所有子项目的依赖
-
-pnpm recursive update
-
-## 其他常用指令
-
-### 清理依赖
-
-### 查看所有子项目
-
-pnpm list
-
-### 查看特定子项目的依赖
-
-pnpm workspace <package-name> list
-
-### 构建所有子项目
-
-pnpm recursive build
+5. run RN app
+   ```bash
+   cd apps/mobile
+   pnpm run start
+   ```
