@@ -14,6 +14,7 @@ https://user-images.githubusercontent.com/55032197/201472767-9db0177a-79b5-4913-
 ## Todo ✨
 
 - [X] Authentication with next-auth Authentication
+- [ ] switch theme and save in local storage、server
 - [ ] Strongly typed React components with TypeScript
 - [ ] Users can add tweets, like, retweet, and reply
 - [ ] Users can delete tweets, add a tweet to bookmarks, and pin their tweet
