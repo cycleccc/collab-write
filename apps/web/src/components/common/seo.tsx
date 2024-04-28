@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 import Head from 'next/head'
 import { siteURL } from '../../lib/env'
 
@@ -13,7 +13,7 @@ export function SEO({
   image,
   description,
 }: MainLayoutProps): JSX.Element {
-  const { asPath } = useRouter()
+  const pathName = usePathname()
 
   return (
     <Head>
@@ -24,7 +24,7 @@ export function SEO({
       {image && <meta property="og:image" content={image} />}
       <meta
         name="og:url"
-        content={`${siteURL}${asPath === '/' ? '' : asPath}`}
+        content={`${siteURL}${pathName === '/' ? '' : pathName}`}
       />
     </Head>
   )

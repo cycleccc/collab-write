@@ -5,7 +5,7 @@ import { getServerSession } from 'next-auth'
 
 import { ThemeContextProvider } from '@lib/context/theme-context'
 import SessionProvider from '@components/SessionProvider'
-import NavMenu from '@components/NavMenu'
+import NavMenu from '@/components/NavMenu'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,7 +20,7 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   const session = await getServerSession()
-
+  console.log('session', session)
   return (
     <html lang="en">
       <body className={inter.className}>
