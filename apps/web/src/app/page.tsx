@@ -9,16 +9,6 @@ import { AuthLayout } from '@components/layout/auth-layout'
 import { getServerSession } from 'next-auth'
 // redirect('/home')
 export default function Login(): JSX.Element {
-  const getSession = async () => {
-    const session = await getServerSession()
-    console.log('session', session)
-    if (session)
-      redirect('/home')
-  }
-  useEffect(() => {
-    getSession()
-  })
-
   return (
     <div className="grid min-h-screen grid-rows-[1fr,auto]">
       <SEO

@@ -19,6 +19,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  console.log('children', children)
   const session = await getServerSession()
   console.log('session', session)
   return (
@@ -27,6 +28,7 @@ export default async function RootLayout({
         <SessionProvider session={session}>
           {/* <ThemeContextProvider> */}
           <main className="mx-auto max-w-5xl text-2xl flex gap-2 text-white">
+            {/* {session && <NavMenu />} */}
             <NavMenu />
             {children}
           </main>

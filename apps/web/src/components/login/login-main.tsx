@@ -1,40 +1,44 @@
-// import { useAuth } from '@lib/context/auth-context'
+import { useAuth } from '@lib/context/auth-context'
 import { NextImage } from '@components/ui/next-image'
 import { CustomIcon } from '@components/ui/custom-icon'
 import { Button } from '@components/ui/button'
+import { redirect } from 'next/navigation'
+import { getServerSession } from 'next-auth'
 
-export function LoginMain(): JSX.Element {
+export async function LoginMain() {
 //   const { signInWithGoogle } = useAuth()
-
+  const session = await getServerSession()
+  //   if (!session || !session.user)
+  // redirect('/api/auth/signin')
   return (
-    <main className="grid lg:grid-cols-[1fr,45vw]">
+    <main className="grid lg:grid-cols-[1fr,1fr]">
       <div className="relative hidden items-center justify-center  lg:flex">
-        <NextImage
+        {/* <NextImage
           imgClassName="object-cover"
           blurClassName="bg-accent-blue"
           src="/assets/twitter-banner.png"
           alt="Twitter banner"
           layout="fill"
           useSkeleton
-        />
+        /> */}
         <i className="absolute">
-          <CustomIcon className="h-96 w-96 text-white" iconName="TwitterIcon" />
+          <CustomIcon className="h-96 w-96 text-white" iconName="XIcon" />
         </i>
       </div>
       <div className="flex flex-col items-center justify-between gap-6 p-8 lg:items-start lg:justify-center">
-        <i className="mb-0 self-center lg:mb-10 lg:self-auto">
+        {/* <i className="mb-0 self-center lg:mb-10 lg:self-auto">
           <CustomIcon
             className="-mt-4 h-6 w-6 text-accent-blue lg:h-12 lg:w-12 dark:lg:text-twitter-icon"
             iconName="TwitterIcon"
           />
-        </i>
+        </i> */}
         <div className="flex max-w-xs flex-col gap-4 font-twitter-chirp-extended lg:max-w-none lg:gap-16">
           <h1
             className='text-3xl before:content-["See_what’s_happening_in_the_world_right_now."]
                        lg:text-6xl lg:before:content-["Happening_now"]'
           />
           <h2 className="hidden text-xl lg:block lg:text-3xl">
-            Join Twitter today.
+            Join today.
           </h2>
         </div>
         <div className="flex max-w-xs flex-col gap-6 [&_button]:py-2">
@@ -58,6 +62,16 @@ export function LoginMain(): JSX.Element {
               {' '}
               Sign up with Apple
             </Button>
+            <Button
+              className="flex cursor-not-allowed justify-center gap-2 border border-light-line-reply font-bold text-light-primary
+                         transition hover:bg-[#e6e6e6] focus-visible:bg-[#e6e6e6] active:bg-[#cccccc] dark:border-0
+                         dark:bg-white dark:hover:brightness-90 dark:focus-visible:brightness-90 dark:active:brightness-75"
+              onClick={signInWithGituib}
+            >
+              <CustomIcon iconName="GithubIcon" />
+              {' '}
+              Sign up with Github
+            </Button>
             <div className="grid w-full grid-cols-[1fr,auto,1fr] items-center gap-2">
               <i className="border-b border-light-border dark:border-dark-border" />
               <p>or</p>
@@ -67,7 +81,7 @@ export function LoginMain(): JSX.Element {
               className="cursor-not-allowed bg-accent-blue text-white transition hover:brightness-90
                          focus-visible:!ring-accent-blue/80 focus-visible:brightness-90 active:brightness-75"
             >
-              Sign up with phone or email
+              Create account
             </Button>
             <p
               className="inner:custom-underline inner:custom-underline text-center text-xs

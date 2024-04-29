@@ -27,7 +27,7 @@ import type { User } from '@lib/types/user'
 import type { Bookmark } from '@lib/types/bookmark'
 import type { Stats } from '@lib/types/stats'
 
-interface AuthContext {
+interface IAuthContext {
   user: User | null
   error: Error | null
   loading: boolean
@@ -38,7 +38,7 @@ interface AuthContext {
   signInWithGoogle: () => Promise<void>
 }
 
-export const AuthContext = createContext<AuthContext | null>(null)
+export const AuthContext = createContext<IAuthContext | null>(null)
 
 interface AuthContextProviderProps {
   children: ReactNode
@@ -184,7 +184,7 @@ export function AuthContextProvider({
   const isAdmin = user ? user.username === 'ccrsxx' : false
   const randomSeed = useMemo(getRandomId, [user?.id])
 
-  const value: AuthContext = {
+  const value: IAuthContext = {
     user,
     error,
     loading,
@@ -198,7 +198,7 @@ export function AuthContextProvider({
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
 
-export function useAuth(): AuthContext {
+export function useAuth(): IAuthContext {
   const context = useContext(AuthContext)
 
   if (!context)
