@@ -1,5 +1,5 @@
-import { createContext, useContext, useEffect, useState } from 'react'
-// import { updateUserTheme } from '@lib/firebase/utils'
+'use client'
+import { createContext, useContext, useEffect, useState } from 'react' // import { updateUserTheme } from '@lib/firebase/utils'
 import type { ChangeEvent, ReactNode } from 'react'
 import type { Accent, Theme } from '@lib/types/theme'
 import { getServerSession } from 'next-auth'
