@@ -1,4 +1,4 @@
-import { useRequireAuth } from '@lib/hooks/useRequireAuth'
+// import { useRequireAuth } from '@lib/hooks/useRequireAuth'
 import { Aside } from '@components/aside/aside'
 import { AsideTrends } from '@components/aside/aside-trends'
 import { Suggestions } from '@components/aside/suggestions'
@@ -10,7 +10,7 @@ export interface LayoutProps {
 }
 
 export function ProtectedLayout({ children }: LayoutProps): JSX.Element {
-  const user = useRequireAuth()
+//   const user = useRequireAuth()
 
   if (!user)
     return <Placeholder />

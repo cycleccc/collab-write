@@ -1,5 +1,4 @@
 'use client'
-
 import { type ReactElement, type ReactNode, useEffect } from 'react'
 import { redirect, usePathname } from 'next/navigation'
 import { SEO } from '@components/common/seo'
@@ -7,7 +6,7 @@ import { LoginMain } from '@components/login/login-main'
 import { LoginFooter } from '@components/login/login-footer'
 import { AuthLayout } from '@components/layout/auth-layout'
 import { getServerSession } from 'next-auth'
-// redirect('/home')
+
 export default function Login(): JSX.Element {
   return (
     <div className="grid min-h-screen grid-rows-[1fr,auto]">

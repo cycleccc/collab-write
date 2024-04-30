@@ -1,9 +1,9 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+'use client'
 
 import { useEffect, useState } from 'react'
 import { toast } from 'react-hot-toast'
-import { checkUsernameAvailability, updateUsername } from '@lib/firebase/utils'
-import { useAuth } from '@lib/context/auth-context'
+// import { checkUsernameAvailability, updateUsername } from '@lib/firebase/utils'
+// import { useAuth } from '@lib/context/auth-context'
 import { useModal } from '@lib/hooks/useModal'
 import { isValidUsername } from '@lib/validation'
 import { sleep } from '@lib/utils'
@@ -24,15 +24,15 @@ export function UpdateUsername(): JSX.Element {
   const [inputValue, setInputValue] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
 
-  const { user } = useAuth()
+  //   const { user } = useAuth()
   const { open, openModal, closeModal } = useModal()
 
   useEffect(() => {
     const checkAvailability = async (value: string): Promise<void> => {
       setSearching(true)
 
-      const empty = await checkUsernameAvailability(value)
-
+      //   const empty = await checkUsernameAvailability(value)
+      const empty = true
       if (empty) { setAvailable(true) }
       else {
         setAvailable(false)

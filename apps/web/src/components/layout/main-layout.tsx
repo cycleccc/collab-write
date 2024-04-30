@@ -1,3 +1,4 @@
+'use client'
 import { SWRConfig } from 'swr'
 import { Toaster } from 'react-hot-toast'
 import { fetchJSON } from '@lib/fetch'

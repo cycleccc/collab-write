@@ -1,15 +1,18 @@
+'use client'
 import { useAuth } from '@lib/context/auth-context'
 import { NextImage } from '@components/ui/next-image'
 import { CustomIcon } from '@components/ui/custom-icon'
 import { Button } from '@components/ui/button'
 import { redirect } from 'next/navigation'
 import { getServerSession } from 'next-auth'
+import Link from 'next/link'
 
-export async function LoginMain() {
+export function LoginMain() {
 //   const { signInWithGoogle } = useAuth()
-  const session = await getServerSession()
+//   const session = await getServerSession()
   //   if (!session || !session.user)
   // redirect('/api/auth/signin')
+
   return (
     <main className="grid lg:grid-cols-[1fr,1fr]">
       <div className="relative hidden items-center justify-center  lg:flex">
@@ -63,14 +66,16 @@ export async function LoginMain() {
               Sign up with Apple
             </Button>
             <Button
-              className="flex cursor-not-allowed justify-center gap-2 border border-light-line-reply font-bold text-light-primary
+              className="flex justify-center gap-2 border border-light-line-reply font-bold text-light-primary
                          transition hover:bg-[#e6e6e6] focus-visible:bg-[#e6e6e6] active:bg-[#cccccc] dark:border-0
                          dark:bg-white dark:hover:brightness-90 dark:focus-visible:brightness-90 dark:active:brightness-75"
-              onClick={signInWithGituib}
+            //   onClick={signInWithGituib}
             >
               <CustomIcon iconName="GithubIcon" />
-              {' '}
-              Sign up with Github
+              <Link href="/api/auth/signin">
+                {' '}
+                Sign up with Github
+              </Link>
             </Button>
             <div className="grid w-full grid-cols-[1fr,auto,1fr] items-center gap-2">
               <i className="border-b border-light-border dark:border-dark-border" />
