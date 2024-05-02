@@ -22,6 +22,7 @@ import type { Variants } from 'framer-motion'
 import type { User } from '@lib/types/user'
 import type { Tweet } from '@lib/types/tweet'
 import type { FilesWithId, ImageData, ImagesPreview } from '@lib/types/file'
+import { useSession } from 'next-auth/react'
 import { InputOptions } from './input-options'
 import { ImagePreview } from './image-preview'
 import { InputForm, fromTop } from './input-form'
@@ -57,6 +58,7 @@ export function Input({
   const [visited, setVisited] = useState(false)
 
   //   const { user, isAdmin } = useAuth()
+  const { data: { user } } = useSession()
   const { name, username, photoURL } = user as User
 
   const inputRef = useRef<HTMLTextAreaElement>(null)
@@ -196,7 +198,7 @@ export function Input({
   const handleFocus = (): void => setVisited(!loading)
 
   const formId = useId()
-
+  const isAdmin = false
   const inputLimit = isAdmin ? 560 : 280
 
   const inputLength = inputValue.length

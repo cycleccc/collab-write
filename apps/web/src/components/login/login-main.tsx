@@ -1,5 +1,5 @@
 'use client'
-import { useAuth } from '@lib/context/auth-context'
+// import { useAuth } from '@lib/context/auth-context'
 import { NextImage } from '@components/ui/next-image'
 import { CustomIcon } from '@components/ui/custom-icon'
 import { Button } from '@components/ui/button'
@@ -24,6 +24,7 @@ export function LoginMain() {
           layout="fill"
           useSkeleton
         /> */}
+        {/* twitter new icon */}
         <i className="absolute">
           <CustomIcon className="h-96 w-96 text-white" iconName="XIcon" />
         </i>

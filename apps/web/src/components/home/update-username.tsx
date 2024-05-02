@@ -14,6 +14,7 @@ import { Modal } from '@components/modal/modal'
 import { UsernameModal } from '@components/modal/username-modal'
 import { InputField } from '@components/input/input-field'
 import type { ChangeEvent, FormEvent } from 'react'
+import { useSession } from 'next-auth/react'
 
 export function UpdateUsername(): JSX.Element {
   const [alreadySet, setAlreadySet] = useState(false)
@@ -25,6 +26,7 @@ export function UpdateUsername(): JSX.Element {
   const [errorMessage, setErrorMessage] = useState('')
 
   //   const { user } = useAuth()
+  const { data: { user } } = useSession()
   const { open, openModal, closeModal } = useModal()
 
   useEffect(() => {

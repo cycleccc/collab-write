@@ -1,16 +1,18 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { useAuth } from '@lib/context/auth-context';
-import type { User } from '@lib/types/user';
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
+// import { useAuth } from '@lib/context/auth-context';
+import type { User } from '@lib/types/user'
+import { useSession } from 'next-auth/react'
 
 export function useRequireAuth(redirectUrl?: string): User | null {
-  const { user, loading } = useAuth();
-  const { replace } = useRouter();
+//   const { user, loading } = useAuth()
+  const { data: { user } } = useSession()
+  const { replace } = useRouter()
 
   useEffect(() => {
-    if (!loading && !user) void replace(redirectUrl ?? '/');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user, loading]);
+    if (!loading && !user)
+      void replace(redirectUrl ?? '/')
+  }, [user, loading])
 
-  return user;
+  return user
 }

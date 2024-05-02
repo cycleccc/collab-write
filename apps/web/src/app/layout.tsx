@@ -5,7 +5,6 @@ import { getServerSession } from 'next-auth'
 
 import { ThemeContextProvider } from '@lib/context/theme-context'
 import SessionProvider from '@components/SessionProvider'
-import NavMenu from '@/components/NavMenu'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,20 +18,18 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  console.log('children', children)
   const session = await getServerSession()
   console.log('session', session)
   return (
     <html lang="en">
       <body className={inter.className}>
         <SessionProvider session={session}>
-          {/* <ThemeContextProvider> */}
-          <main className="mx-auto max-w-5xl text-2xl flex gap-2 text-white">
-            {/* {session && <NavMenu />} */}
-            <NavMenu />
-            {children}
-          </main>
-          {/* </ThemeContextProvider> */}
+          <ThemeContextProvider>
+            <main className="">
+              {/* <main className="mx-auto max-w-5xl text-2xl flex gap-2 text-white"> */}
+              {children}
+            </main>
+          </ThemeContextProvider>
         </SessionProvider>
       </body>
     </html>

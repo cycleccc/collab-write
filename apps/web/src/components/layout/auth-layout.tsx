@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { useAuth } from '@lib/context/auth-context'
+// import { useAuth } from '@lib/context/auth-context'
 import { sleep } from '@lib/utils'
 import { Placeholder } from '@components/common/placeholder'
+import { useSession } from 'next-auth/react'
 import type { LayoutProps } from './common-layout'
 
 export function AuthLayout({ children }: LayoutProps): JSX.Element {
   const [pending, setPending] = useState(true)
-
-  const { user, loading } = useAuth()
+  const { data: { user }, status } = useSession()
+  const loading = status === 'loading'
+  //   const { user, loading } = useAuth()
   const { replace } = useRouter()
 
   useEffect(() => {

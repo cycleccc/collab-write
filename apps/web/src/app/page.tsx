@@ -1,13 +1,15 @@
 'use client'
-import { type ReactElement, type ReactNode, useEffect } from 'react'
-import { redirect, usePathname } from 'next/navigation'
 import { SEO } from '@components/common/seo'
 import { LoginMain } from '@components/login/login-main'
 import { LoginFooter } from '@components/login/login-footer'
-import { AuthLayout } from '@components/layout/auth-layout'
-import { getServerSession } from 'next-auth'
+import { useSession } from 'next-auth/react'
+import { redirect } from 'next/navigation'
 
 export default function Login(): JSX.Element {
+  const session = useSession()
+  if (session.data)
+    redirect('/home')
+
   return (
     <div className="grid min-h-screen grid-rows-[1fr,auto]">
       <SEO
@@ -19,24 +21,3 @@ export default function Login(): JSX.Element {
     </div>
   )
 }
-
-// components/UserAuthForm.tsx
-
-// import { getServerSession } from 'next-auth'
-
-// export default async function Home() {
-//   const session = await getServerSession()
-
-//   return (
-//     <>
-//       getServerSession Result
-//       {session?.user?.name
-//         ? (
-//           <div>{session?.user?.name}</div>
-//           )
-//         : (
-//           <div>Not logged in</div>
-//           )}
-//     </>
-//   )
-// }

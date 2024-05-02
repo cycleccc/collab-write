@@ -1,27 +1,27 @@
-import Link from 'next/link';
-import cn from 'clsx';
-import { NextImage } from '@components/ui/next-image';
+import Link from 'next/link'
+import cn from 'clsx'
+import { NextImage } from '@components/ui/next-image'
 
-type UserAvatarProps = {
-  src: string;
-  alt: string;
-  size?: number;
-  username?: string;
-  className?: string;
-};
+interface UserAvatarProps {
+  src: string
+  alt: string
+  size?: number
+  username?: string
+  className?: string
+}
 
 export function UserAvatar({
   src,
   alt,
   size,
   username,
-  className
+  className,
 }: UserAvatarProps): JSX.Element {
-  const pictureSize = size ?? 48;
+  const pictureSize = size ?? 48
 
   return (
     <Link href={username ? `/user/${username}` : '#'}>
-      <a
+      {/* <a
         className={cn(
           'blur-picture flex self-start',
           !username && 'pointer-events-none',
@@ -38,7 +38,7 @@ export function UserAvatar({
           alt={alt}
           key={src}
         />
-      </a>
+      </a> */}
     </Link>
-  );
+  )
 }
