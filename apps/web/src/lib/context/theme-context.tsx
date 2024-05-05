@@ -2,8 +2,7 @@
 import { createContext, useContext, useEffect, useState } from 'react' // import { updateUserTheme } from '@lib/firebase/utils'
 import type { ChangeEvent, ReactNode } from 'react'
 import type { Accent, Theme } from '@lib/types/theme'
-import { getServerSession } from 'next-auth'
-import { signIn, signOut, useSession } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 
 interface IThemeContext {
   theme: Theme

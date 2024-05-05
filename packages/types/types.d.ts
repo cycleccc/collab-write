@@ -1,1 +1,1 @@
-export { Event } from './sockets';
+export { Event } from './sockets'

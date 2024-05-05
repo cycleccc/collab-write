@@ -1,14 +1,7 @@
-import { AnimatePresence, motion } from 'framer-motion'
-import { DropdownMenu } from '@components/ui/dropdown-menu'
-import cn from 'clsx'
 import { useModal } from '@lib/hooks/useModal'
-import { preventBubbling } from '@lib/utils'
 import { Modal } from '@components/modal/modal'
 import { DisplayModal } from '@components/modal/display-modal'
-import { HeroIcon } from '@components/ui/hero-icon'
-import { Button } from '@components/ui/button'
 import type { Variants } from 'framer-motion'
-import { MenuLink } from './menu-link'
 
 export const variants: Variants = {
   initial: { opacity: 0, y: 50 },

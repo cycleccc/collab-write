@@ -1,18 +1,8 @@
-import { AnimatePresence, motion } from 'framer-motion'
-import { DropdownMenu } from '@components/ui/dropdown-menu'
-import cn from 'clsx'
 // import { useAuth } from '@lib/context/auth-context'
 import { useModal } from '@lib/hooks/useModal'
 import { Modal } from '@components/modal/modal'
 import { ActionModal } from '@components/modal/action-modal'
-import { Button } from '@components/ui/button'
-import { HeroIcon } from '@components/ui/hero-icon'
-import { CustomIcon } from '@components/ui/custom-icon'
-import { UserAvatar } from '@components/user/user-avatar'
-import { UserName } from '@components/user/user-name'
-import { UserUsername } from '@components/user/user-username'
 import type { User } from '@lib/types/user'
-import { variants } from './more-settings'
 
 export function SidebarProfile(): JSX.Element {
 //   const { user, signOut } = useAuth()

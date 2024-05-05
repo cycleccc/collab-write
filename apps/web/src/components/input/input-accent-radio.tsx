@@ -1,13 +1,13 @@
-import cn from 'clsx';
-import { useTheme } from '@lib/context/theme-context';
-import { HeroIcon } from '@components/ui/hero-icon';
-import type { Accent } from '@lib/types/theme';
+import cn from 'clsx'
+import { useTheme } from '@lib/context/theme-context'
+import { HeroIcon } from '@components/ui/hero-icon'
+import type { Accent } from '@lib/types/theme'
 
-type InputAccentRadioProps = {
-  type: Accent;
-};
+interface InputAccentRadioProps {
+  type: Accent
+}
 
-type InputAccentData = Record<Accent, string>;
+type InputAccentData = Record<Accent, string>
 
 const InputColors: Readonly<InputAccentData> = {
   yellow:
@@ -19,39 +19,39 @@ const InputColors: Readonly<InputAccentData> = {
   orange:
     'bg-accent-orange hover:ring-accent-orange/10 active:ring-accent-orange/20',
   green:
-    'bg-accent-green hover:ring-accent-green/10 active:ring-accent-green/20'
-};
+    'bg-accent-green hover:ring-accent-green/10 active:ring-accent-green/20',
+}
 
 export function InputAccentRadio({ type }: InputAccentRadioProps): JSX.Element {
-  const { accent, changeAccent } = useTheme();
+  const { accent, changeAccent } = useTheme()
 
-  const bgColor = InputColors[type];
-  const isChecked = type === accent;
+  const bgColor = InputColors[type]
+  const isChecked = type === accent
 
   return (
     <label
       className={cn(
         `hover-animation flex h-10 w-10 cursor-pointer items-center justify-center
          rounded-full hover:ring`,
-        bgColor
+        bgColor,
       )}
       htmlFor={type}
     >
       <input
-        className='peer absolute h-0 w-0 opacity-0'
+        className="peer absolute h-0 w-0 opacity-0"
         id={type}
-        type='radio'
-        name='accent'
+        type="radio"
+        name="accent"
         value={type}
         checked={isChecked}
         onChange={changeAccent}
       />
-      <i className='text-white peer-checked:inner:opacity-100'>
+      <i className="text-white peer-checked:inner:opacity-100">
         <HeroIcon
-          className='h-6 w-6 opacity-0 transition-opacity duration-200'
-          iconName='CheckIcon'
+          className="h-6 w-6 opacity-0 transition-opacity duration-200"
+          iconName="CheckIcon"
         />
       </i>
     </label>
-  );
+  )
 }

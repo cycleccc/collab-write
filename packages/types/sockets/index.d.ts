@@ -1,4 +1,4 @@
 export interface Event {
-    msg: string;
-    content: string;
+  msg: string
+  content: string
 }

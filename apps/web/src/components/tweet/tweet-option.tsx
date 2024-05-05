@@ -1,21 +1,21 @@
-import cn from 'clsx';
-import { preventBubbling } from '@lib/utils';
-import { HeroIcon } from '@components/ui/hero-icon';
-import { ToolTip } from '@components/ui/tooltip';
-import { NumberStats } from './number-stats';
-import type { IconName } from '@components/ui/hero-icon';
+import cn from 'clsx'
+import { preventBubbling } from '@lib/utils'
+import { HeroIcon } from '@components/ui/hero-icon'
+import { ToolTip } from '@components/ui/tooltip'
+import type { IconName } from '@components/ui/hero-icon'
+import { NumberStats } from './number-stats'
 
-type TweetOption = {
-  tip: string;
-  move?: number;
-  stats?: number;
-  iconName: IconName;
-  disabled?: boolean;
-  className: string;
-  viewTweet?: boolean;
-  iconClassName: string;
-  onClick?: (...args: unknown[]) => unknown;
-};
+interface TweetOption {
+  tip: string
+  move?: number
+  stats?: number
+  iconName: IconName
+  disabled?: boolean
+  className: string
+  viewTweet?: boolean
+  iconClassName: string
+  onClick?: (...args: unknown[]) => unknown
+}
 
 export function TweetOption({
   tip,
@@ -26,7 +26,7 @@ export function TweetOption({
   className,
   viewTweet,
   iconClassName,
-  onClick
+  onClick,
 }: TweetOption): JSX.Element {
   return (
     <button
@@ -34,14 +34,14 @@ export function TweetOption({
         `group flex items-center gap-1.5 p-0 transition-none
          disabled:cursor-not-allowed inner:transition inner:duration-200`,
         disabled && 'cursor-not-allowed',
-        className
+        className,
       )}
       onClick={preventBubbling(onClick)}
     >
       <i
         className={cn(
           'relative rounded-full p-2 not-italic group-focus-visible:ring-2',
-          iconClassName
+          iconClassName,
         )}
       >
         <HeroIcon
@@ -54,5 +54,5 @@ export function TweetOption({
         <NumberStats move={move as number} stats={stats as number} />
       )}
     </button>
-  );
+  )
 }

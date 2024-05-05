@@ -1,16 +1,17 @@
-import { useState, useEffect } from 'react';
-import { refEqual } from 'firebase/firestore';
-import type { DocumentReference } from 'firebase/firestore';
+import { useEffect, useState } from 'react'
+import { refEqual } from 'firebase/firestore'
+import type { DocumentReference } from 'firebase/firestore'
 
 export function useCacheRef<T>(
-  ref: DocumentReference<T>
+  ref: DocumentReference<T>,
 ): DocumentReference<T> {
-  const [cachedRef, setCachedRef] = useState(ref);
+  const [cachedRef, setCachedRef] = useState(ref)
 
   useEffect(() => {
-    if (!refEqual(ref, cachedRef)) setCachedRef(ref);
+    if (!refEqual(ref, cachedRef))
+      setCachedRef(ref)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ref]);
+  }, [ref])
 
-  return cachedRef;
+  return cachedRef
 }

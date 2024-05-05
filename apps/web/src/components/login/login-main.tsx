@@ -1,10 +1,7 @@
 'use client'
 // import { useAuth } from '@lib/context/auth-context'
-import { NextImage } from '@components/ui/next-image'
 import { CustomIcon } from '@components/ui/custom-icon'
 import { Button } from '@components/ui/button'
-import { redirect } from 'next/navigation'
-import { getServerSession } from 'next-auth'
 import Link from 'next/link'
 
 export function LoginMain() {

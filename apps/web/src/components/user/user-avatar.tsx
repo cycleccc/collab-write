@@ -1,6 +1,4 @@
 import Link from 'next/link'
-import cn from 'clsx'
-import { NextImage } from '@components/ui/next-image'
 
 interface UserAvatarProps {
   src: string

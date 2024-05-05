@@ -1,16 +1,16 @@
-import Link from 'next/link';
-import cn from 'clsx';
+import Link from 'next/link'
+import cn from 'clsx'
 
-type UserUsernameProps = {
-  username: string;
-  className?: string;
-  disableLink?: boolean;
-};
+interface UserUsernameProps {
+  username: string
+  className?: string
+  disableLink?: boolean
+}
 
 export function UserUsername({
   username,
   className,
-  disableLink
+  disableLink,
 }: UserUsernameProps): JSX.Element {
   return (
     <Link href={`/user/${username}`}>
@@ -18,12 +18,13 @@ export function UserUsername({
         className={cn(
           'truncate text-light-secondary dark:text-dark-secondary',
           className,
-          disableLink && 'pointer-events-none'
+          disableLink && 'pointer-events-none',
         )}
         tabIndex={-1}
       >
-        @{username}
+        @
+        {username}
       </a>
     </Link>
-  );
+  )
 }

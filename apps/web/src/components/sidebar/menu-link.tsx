@@ -1,10 +1,10 @@
-import { forwardRef } from 'react';
-import Link from 'next/link';
-import type { ComponentPropsWithRef } from 'react';
+import { forwardRef } from 'react'
+import Link from 'next/link'
+import type { ComponentPropsWithRef } from 'react'
 
 type MenuLinkProps = ComponentPropsWithRef<'a'> & {
-  href: string;
-};
+  href: string
+}
 
 // eslint-disable-next-line react/display-name
 export const MenuLink = forwardRef<HTMLAnchorElement, MenuLinkProps>(
@@ -14,5 +14,5 @@ export const MenuLink = forwardRef<HTMLAnchorElement, MenuLinkProps>(
         {children}
       </a> */}
     </Link>
-  )
-);
+  ),
+)
