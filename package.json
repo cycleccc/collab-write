@@ -15,7 +15,11 @@
     "clean": "pnpm recursive exec -- rm -rf node_modules && rm -rf node_modules",
     "build": "node scripts/build.js",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "web:dev": "cd apps/web && pnpm dev",
+    "server:dev": "cd apps/server && pnpm start:dev",
+    "server:debug": "cd apps/server && pnpm start:debug",
+    "mobile:dev": "cd apps/mobile && pnpm start"
   },
   "dependencies": {
     "react": "18.2.0",
