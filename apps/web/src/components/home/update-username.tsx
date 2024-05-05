@@ -1,5 +1,4 @@
 'use client'
-
 import { useEffect, useState } from 'react'
 import { toast } from 'react-hot-toast'
 // import { checkUsernameAvailability, updateUsername } from '@lib/firebase/utils'

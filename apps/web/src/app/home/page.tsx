@@ -15,17 +15,17 @@ import { Tweet } from '@components/tweet/tweet'
 import { Loading } from '@components/ui/loading'
 import { Error } from '@components/ui/error'
 import type { ReactElement, ReactNode } from 'react'
+import { useSession } from 'next-auth/react'
 
 export default function Home(): JSX.Element {
   const { isMobile } = useWindow()
-
+  const data = useSession()
   //   console.log('isMobile', isMobile)
   //   const { data, loading, LoadMore } = useInfiniteScroll(
   //     tweetsCollection,
   //     [where('parent', '==', null), orderBy('createdAt', 'desc')],
   //     { includeUser: true, allowNull: true, preserve: true },
   //   )
-  const data: any = []
   const loading = false
   return (
     <MainContainer>

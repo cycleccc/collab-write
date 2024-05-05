@@ -1,8 +1,19 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { Dialog } from '@components/ui/dialog'
 import cn from 'clsx'
 import type { ReactNode } from 'react'
 import type { Variants } from 'framer-motion'
+import { Button } from '@/components/ui/button'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 
 interface ModalProps {
   open: boolean
@@ -43,36 +54,78 @@ export function Modal({
   closeModal,
 }: ModalProps): JSX.Element {
   return (
-    <AnimatePresence>
-      {open && (
-        <Dialog
-          className="relative z-50"
-          open={open}
-          onClose={closeModal}
-          static
-        >
-          <motion.div
-            className="hover-animation fixed inset-0 bg-black/40 dark:bg-[#5B7083]/40"
-            aria-hidden="true"
-            {...backdrop}
-          />
-          <div
-            className={cn(
-              'fixed inset-0 overflow-y-auto p-4',
-              className ?? 'flex items-center justify-center',
-            )}
-          >
-            <Dialog.Panel
+    <>
+      {
+    open && (
+      <div className="relative z-50">
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button variant="outline">Edit Profile</Button>
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-[425px]">
+            <DialogHeader>
+              <DialogTitle>Edit profile</DialogTitle>
+              <DialogDescription>
+                Make changes to your profile here. Click save when you're done.
+              </DialogDescription>
+            </DialogHeader>
+            <div className="grid gap-4 py-4">
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="name" className="text-right">
+                  Name
+                </Label>
+                <Input id="name" value="Pedro Duarte" className="col-span-3" />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="username" className="text-right">
+                  Username
+                </Label>
+                <Input id="username" value="@peduarte" className="col-span-3" />
+              </div>
+            </div>
+            <DialogFooter>
+              <Button type="submit">Save changes</Button>
+            </DialogFooter>
+            <div
               className={modalClassName}
-              as={motion.div}
               {...(modalAnimation ?? modal)}
               onClick={closePanelOnClick ? closeModal : undefined}
             >
               {children}
-            </Dialog.Panel>
-          </div>
+            </div>
+          </DialogContent>
         </Dialog>
-      )}
-    </AnimatePresence>
+      </div>
+    )
+       //   <Dialog
+    //     className="relative z-50"
+    //     open={open}
+    //     onClose={closeModal}
+    //     static
+    //   >
+    //     <motion.div
+    //       className="hover-animation fixed inset-0 bg-black/40 dark:bg-[#5B7083]/40"
+    //       aria-hidden="true"
+    //       {...backdrop}
+    //     />
+    //     <div
+    //       className={cn(
+    //         'fixed inset-0 overflow-y-auto p-4',
+    //         className ?? 'flex items-center justify-center',
+    //       )}
+    //     >
+    //       <Dialog.Panel
+    //         className={modalClassName}
+    //         as={motion.div}
+    //         {...(modalAnimation ?? modal)}
+    //         onClick={closePanelOnClick ? closeModal : undefined}
+    //       >
+    //         {children}
+    //       </Dialog.Panel>
+    //     </div>
+    //   </Dialog>
+    // </AnimatePresence>
+   }
+    </>
   )
 }
