@@ -6,7 +6,8 @@ import { useSession } from 'next-auth/react'
 
 export function useRequireAuth(redirectUrl?: string): User | null {
 //   const { user, loading } = useAuth()
-  const { data: { user } } = useSession()
+  const { data: session } = useSession()
+  const user = session?.user
   const { replace } = useRouter()
 
   useEffect(() => {

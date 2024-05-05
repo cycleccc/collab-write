@@ -25,7 +25,8 @@ export function UpdateUsername(): JSX.Element {
   const [errorMessage, setErrorMessage] = useState('')
 
   //   const { user } = useAuth()
-  const { data: { user } } = useSession()
+  const { data: session } = useSession()
+  const user = session?.user
   const { open, openModal, closeModal } = useModal()
 
   useEffect(() => {
