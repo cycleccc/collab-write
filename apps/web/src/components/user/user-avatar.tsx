@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import { NextImage } from '../ui/next-image'
+import { cn } from '@/lib/utils'
 
 interface UserAvatarProps {
   src: string
@@ -19,24 +21,24 @@ export function UserAvatar({
 
   return (
     <Link href={username ? `/user/${username}` : '#'}>
-      {/* <a
+      <a
         className={cn(
           'blur-picture flex self-start',
           !username && 'pointer-events-none',
-          className
+          className,
         )}
         tabIndex={username ? 0 : -1}
       >
         <NextImage
           useSkeleton
-          imgClassName='rounded-full'
+          imgClassName="rounded-full"
           width={pictureSize}
           height={pictureSize}
           src={src}
           alt={alt}
           key={src}
         />
-      </a> */}
+      </a>
     </Link>
   )
 }

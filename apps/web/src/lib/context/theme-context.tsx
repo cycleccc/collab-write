@@ -43,7 +43,7 @@ export function ThemeContextProvider({
   const [accent, setAccent] = useState<Accent>(setInitialAccent)
 
   const { data: session } = useSession()
-  const user = session?.user
+  const user = session?.user || {}
 
   console.log('now_user', user)
   const { email, id: userId, theme: userTheme = 'dark', accent: userAccent } = user ?? {}

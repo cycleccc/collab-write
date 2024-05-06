@@ -11,6 +11,7 @@ export interface User {
   location: string | null
   username: string
   photoURL: string
+  image: string
   verified: boolean
   following: string[]
   followers: string[]

@@ -59,9 +59,8 @@ export function Input({
 
   //   const { user, isAdmin } = useAuth()
   const { data: session } = useSession()
-  const user = session?.user
-  const { name, username, photoURL } = user as User
-
+  const user = session?.user || {}
+  const { name, username, image: photoURL } = user as User
   const inputRef = useRef<HTMLTextAreaElement>(null)
 
   const previewCount = imagesPreview.length
@@ -73,7 +72,6 @@ export function Input({
         inputRef.current?.focus()
       return cleanImage
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
   )
 
@@ -230,9 +228,9 @@ export function Input({
           Replying to
           {' '}
           <Link href={`/user/${parent?.username as string}`}>
-            {/* <a className="custom-underline text-main-accent">
+            <a className="custom-underline text-main-accent">
               {parent?.username as string}
-            </a> */}
+            </a>
           </Link>
         </motion.p>
       )}

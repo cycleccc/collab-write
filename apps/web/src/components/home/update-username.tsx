@@ -26,7 +26,7 @@ export function UpdateUsername(): JSX.Element {
 
   //   const { user } = useAuth()
   const { data: session } = useSession()
-  const user = session?.user
+  const user = session?.user || {}
   const { open, openModal, closeModal } = useModal()
 
   useEffect(() => {
@@ -51,7 +51,7 @@ export function UpdateUsername(): JSX.Element {
       if (errorMessage)
         setErrorMessage('')
 
-      const error = isValidUsername(user?.username as string, inputValue)
+      const error = isValidUsername(user?.name as string, inputValue)
 
       if (error) {
         setAvailable(false)
@@ -62,9 +62,9 @@ export function UpdateUsername(): JSX.Element {
   }, [inputValue])
 
   useEffect(() => {
-    if (!user?.updatedAt)
-      openModal()
-    else setAlreadySet(true)
+    // if (!user?.updatedAt)
+    //   openModal()
+    // else setAlreadySet(true)
   }, [])
 
   const changeUsername = async (

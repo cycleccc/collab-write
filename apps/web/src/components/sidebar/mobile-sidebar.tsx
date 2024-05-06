@@ -21,8 +21,8 @@ const variant: Variants = {
 export function MobileSidebar(): JSX.Element {
 //   const { user } = useAuth()
   const { data: session } = useSession()
-  const user = session?.user
-
+  const user = session?.user || {}
+  console.log('user', user)
   const { photoURL, name } = user as User
 
   const { open, openModal, closeModal } = useModal()

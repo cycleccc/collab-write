@@ -66,7 +66,7 @@ export function Sidebar(): JSX.Element {
 
   const { open, openModal, closeModal } = useModal()
 
-  const username = user?.username as string
+  const username = user?.name as string
 
   return (
     <header
