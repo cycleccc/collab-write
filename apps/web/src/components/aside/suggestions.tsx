@@ -1,17 +1,17 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import {
-  doc,
-  documentId,
-  limit,
-  orderBy,
-  query,
-  where,
-} from 'firebase/firestore'
+// import {
+//   doc,
+//   documentId,
+//   limit,
+//   orderBy,
+//   query,
+//   where,
+// } from 'firebase/firestore'
 import { useAuth } from '@lib/context/auth-context'
 import { useCollection } from '@lib/hooks/useCollection'
 import { useDocument } from '@lib/hooks/useDocument'
-import { usersCollection } from '@lib/firebase/collections'
+// import { usersCollection } from '@lib/firebase/collections'
 import { UserCard } from '@components/user/user-card'
 import { Loading } from '@components/ui/loading'
 import { Error } from '@components/ui/error'
