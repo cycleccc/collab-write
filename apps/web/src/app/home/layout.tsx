@@ -13,8 +13,8 @@ export default function HomeLayout({
     <MainLayout>
       { children }
       <Aside>
-        <AsideTrends />
-        <Suggestions />
+        {/* <AsideTrends /> */}
+        {/* <Suggestions /> */}
       </Aside>
     </MainLayout>
   )
