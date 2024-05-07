@@ -34,7 +34,9 @@ export function Suggestions(): JSX.Element {
   //     ),
   //     { allowNull: true },
   //   )
-
+  const adminLoading = null
+  const suggestionsLoading = null
+  const suggestionsData = null
   return (
     <section className="hover-animation rounded-2xl bg-main-sidebar-background">
       {adminLoading || suggestionsLoading

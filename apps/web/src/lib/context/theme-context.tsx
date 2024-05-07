@@ -45,7 +45,6 @@ export function ThemeContextProvider({
   const { data: session } = useSession()
   const user = session?.user || {}
 
-  console.log('now_user', user)
   const { email, id: userId, theme: userTheme = 'dark', accent: userAccent } = user ?? {}
 
   useEffect(() => {

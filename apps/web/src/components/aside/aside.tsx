@@ -1,3 +1,4 @@
+'use  client'
 import { useWindow } from '@lib/context/window-context'
 import type { ReactNode } from 'react'
 import { SearchBar } from './search-bar'
@@ -8,6 +9,7 @@ interface AsideProps {
 }
 
 export function Aside({ children }: AsideProps): JSX.Element | null {
+  console.log('asideaaa')
   const { width } = useWindow()
 
   if (width < 1024)

@@ -22,8 +22,8 @@ export function WindowContextProvider({
 }: WindowContextProviderProps): JSX.Element {
   const isBrowser = () => typeof window !== 'undefined'
   const [windowSize, setWindowSize] = useState<WindowSize>({
-    width: isBrowser() ? window.innerWidth : 1000,
-    height: isBrowser() ? window.innerHeight : 1000,
+    width: isBrowser() ? window.innerWidth : 1024,
+    height: isBrowser() ? window.innerHeight : 1024,
   })
 
   useEffect(() => {

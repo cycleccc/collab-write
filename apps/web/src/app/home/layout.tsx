@@ -1,3 +1,4 @@
+'use client'
 import type { JSXElementConstructor } from 'react'
 import { MainLayout } from '@/components/layout/main-layout'
 import { Aside } from '@/components/aside/aside'
@@ -13,8 +14,8 @@ export default function HomeLayout({
     <MainLayout>
       { children }
       <Aside>
-        {/* <AsideTrends /> */}
-        {/* <Suggestions /> */}
+        <AsideTrends />
+        <Suggestions />
       </Aside>
     </MainLayout>
   )
